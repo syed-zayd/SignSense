@@ -1,6 +1,6 @@
 # SignSense
 
-**SignSense** is a real-time American Sign Language (ASL) letter recognition system developed as part of the SE101 course at the University of Waterloo. The system uses a Raspberry Pi Zero W and a camera module to capture hand orientation landmarks, enabling the prediction of ASL letters in real-time.
+**SignSense** is a real-time American Sign Language (ASL) letter recognition system developed as part of the SE101 course at the University of Waterloo. The system uses a Raspberry Pi Zero W and a camera module to capture hand orientation landmarks, enabling the prediction of ASL letters in real-time using a trained ML model. This repository is a fork and only contains the main branch with programs for both the Pi and the server running the model.
 
 ## Installation
 
