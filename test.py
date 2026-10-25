@@ -2,7 +2,7 @@ import mediapipe as mp
 import numpy as np
 import cv2
 from tensorflow.keras.models import load_model
-from updated_main import intake, formulate_sentence, text_to_speech, refine_sentence_with_grammar
+from updated_main import intake, formulate_sentence, text_to_speech, refine_sentence_with_grammar, PI_URL
 
 # Load the model
 model = load_model('SignLanguageNeuralNetwork.h5')
@@ -70,7 +70,7 @@ def predict_gesture(dataBuffer):
     confidence = predictions[0][predictedLabel]
     return letter, confidence
 
-streamURL = "http://172.20.10.2:8888/video_feed"
+streamURL = f"{PI_URL}/video_feed"
 cap = cv2.VideoCapture(streamURL)
 
 workingString = ""
@@ -142,4 +142,4 @@ while cap.isOpened():
         break
 
 cap.release()
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()

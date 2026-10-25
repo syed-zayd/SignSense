@@ -1,1 +1,1 @@
-python3 /home/pi/Desktop/flaskie/flaskie.py
+python3 "$(dirname "$0")/flaskie.py"

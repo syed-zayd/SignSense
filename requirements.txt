@@ -1,0 +1,9 @@
+flask
+language-tool-python
+mediapipe
+nltk
+numpy
+opencv-python
+requests
+scikit-learn
+tensorflow

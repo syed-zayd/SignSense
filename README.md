@@ -20,9 +20,10 @@ Before running the project, make sure you have the following:
 ### Setup
 
 1. **On the Raspberry Pi**:
-   - Clone the repository and install the required libraries:
+   - Clone the repository and install the camera, speech and server libraries:
      ```bash
-     pip install -r requirements.txt
+     sudo apt install python3-picamera2 espeak
+     pip install flask opencv-python
      ```
    - Start the Flask server on the Raspberry Pi by running:
      ```bash
@@ -34,10 +35,21 @@ Before running the project, make sure you have the following:
      ```bash
      pip install -r requirements.txt
      ```
+   - LanguageTool needs Java installed.
+   - Point the scripts at the Pi if it is not reachable as `raspberrypi.local`:
+     ```bash
+     export SIGNSENSE_PI_URL=http://<pi-address>:8888
+     ```
    - Run the `test.py` script to start receiving and displaying the ASL predictions:
      ```bash
      python test.py
      ```
+
+### Retraining the model
+
+`dataset_preparation.py` turns the images in `asl_alphabet_dataset/` into hand landmarks in
+`dataset.pickle`, and `training_model.py` trains on that file and saves
+`SignLanguageNeuralNetwork.h5`.
 
 ## Usage
 

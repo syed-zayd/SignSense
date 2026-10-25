@@ -1,16 +1,19 @@
+import os
 import requests
 import nltk
 from nltk.tokenize import word_tokenize
 import language_tool_python
 import time
 #make sure your system has java when running this for language_tool_python
+# Address of the Raspberry Pi running flaskie.py
+PI_URL = os.environ.get("SIGNSENSE_PI_URL", "http://raspberrypi.local:8888")
 # Ensure NLTK resources are downloaded
 nltk.download('punkt')
 
 def text_to_speech(text):
     """Sends the text to the raspberry pi to speak"""
     try:
-        url = "http:ip:8888/say"
+        url = f"{PI_URL}/say"
         data = {"text": text}
         response = requests.post(url, json=data)
         print(f"Sent! Status: {response.status_code}, Response: {response.text}")

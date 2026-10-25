@@ -2,7 +2,7 @@
 from flask import Flask, Response, request, jsonify
 from picamera2 import Picamera2, MappedArray
 import threading
-import os
+import subprocess
 import time
 import cv2
 print("server starting")
@@ -48,8 +48,8 @@ def say():
     
     text = data["text"] # get the text string
     def tts_task():
-        os.system(f"espeak -a 200 '{text}'")
-    threading.Thread(target=tts, args=(text,)).start()
+        subprocess.run(["espeak", "-a", "200", text])
+    threading.Thread(target=tts_task).start()
     return jsonify({"message": "text being spoken..."}), 200
 
 if __name__ == "__main__":
